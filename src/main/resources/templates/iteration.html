@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Bootstrap to Thymeleaf App</title>
+<!-- Latest compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+<link th:href="@{css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<table class="table table-bordered table-responsive table-striped">
+					<thead>
+						<tr>
+							<th>employee first name</th>
+							<th>employee last name</th>
+							<th>employee email</th>
+						</tr>						
+					</thead>
+					<tbody>
+						<tr th:each="emp:${employees}">
+							<td th:text="${emp.firstName}"></td>
+							<td th:text="${emp.lastName}"></td>
+							<td th:text="${emp.email}"></td>
+						</tr>
+						<tr th:each="emp:${employees}" 
+							th:style="${empStat.odd} ? 'font-weight:bold'"
+							th:alt-title="${empStat.even} ? 'even' : 'odd'"
+						>							
+							<td th:text="${emp.firstName}"></td>
+							<td th:text="${emp.lastName}"></td>
+							<td th:text="${emp.email}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
