@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Bootstrap to Thymeleaf App</title>
+<!-- Latest compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+<link th:href="@{css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1>Thymeleaf switch case demo</h1>
+			<h4 th:text="${user.userName}"></h4>
+			<div th:switch="${user.role}">
+				<p th:case="ADMIN">user is admin</p>
+				<p th:case="MANAGER">user is manager</p>
+				<p th:case="GUEST">user is guest</p>
+				<!-- default -->
+				<p th:case="*">user type is unknown</p>
+			</div>
+		</div>
+	</div>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

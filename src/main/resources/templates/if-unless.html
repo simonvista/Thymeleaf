@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Bootstrap to Thymeleaf App</title>
+<!-- Latest compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+<link th:href="@{css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<table class="table table-bordered table-responsive table-striped">
+					<thead>
+						<tr>
+							<th>user name</th>
+							<th>user name</th>
+							<th>actions</th>							
+						</tr>						
+					</thead>
+					<tbody>
+						<tr th:each="user:${users}">
+							<td th:text="${user.userName}"></td>
+							<td th:text="${user.email}"></td>
+							<td>
+								<a class="btn btn-primary" th:if="${user.role}=='ADMIN'">update</a>
+								<a class="btn btn-danger" th:if="${user.role}=='ADMIN'">delete</a>
+								<a class="btn btn-primary" th:unless="${user.role}=='ADMIN'">view</a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
